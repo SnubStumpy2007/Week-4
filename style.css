@@ -1,0 +1,25 @@
+body {
+    background-color: purple;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quiz-space {
+    background-color: pink;
+    /* color:white; */
+    border-radius: 3rem;
+    border: solid;
+    padding: 5rem;
+}
+
+h1 {
+    font-family:'Times New Roman', Times, serif;
+    font-size: 3rem;
+}
+
+h2 {
+    font-family:'Times New Roman', Times, serif;
+    font-size: 2rem;
+    
+}
