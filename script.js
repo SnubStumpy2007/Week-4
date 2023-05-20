@@ -32,3 +32,29 @@ const questions = [
     answer: 'A block of code designed to perform a task.' 
     }
 ]
+
+
+// variables definining initial variables.
+// Current question (First question), timer, and score starting at 0
+// are the first values.
+// Use let as this allows these variables to change over the course of the program
+// do these at the top of the program
+let currentQuestion = 0;
+let timer = 15;
+let score = 0;
+
+// getElementByIds
+// provides access to DOM elements to manipulate them in the HTML
+// ID's are done with spans as well.
+// Text will be displayed on the page via JavaScript
+// El means element.  Parent, child elements
+const questionEl = document.getElementById('question');
+const optionsEl = document.getElementById('options');
+const startButton = document.getElementById('start-quiz');
+const submitButton = document.getElementById('submit');
+const timeEL = document.getElementById('timer');
+const scoreEl = document.getElementById('score');
+
+// Adds an event listener for the start quiz button.
+// Once the Start Quiz button is pressed, then start the quiz
+startButton.addEventListener('click', startQuiz);
