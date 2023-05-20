@@ -39,7 +39,7 @@ const questions = [
 // are the first values.
 // Use let as this allows these variables to change over the course of the program
 // do these at the top of the program
-let currentQuestion = 0;
+let currentQuestionIndex = 0;
 let timer = 15;
 let score = 0;
 
@@ -62,7 +62,17 @@ startButton.addEventListener('click', startQuiz);
 // Function to start the quiz.  
 // Once the start button is pressed, display for that 
 // is set to none, then questions and timer functions are called in the function
+// This is a DOM function
+// This sets the display property to 'none', and the display style to 'block"
+// https://www.w3schools.com/jsref/prop_style_display.asp
 function startQuiz() {
     startButton.style.display = 'none';
-    quizSpace.style.display = 'block'
+    quizSpace.style.display = 'block';
+    showQuestions();
+    startTime();
+}
+
+// function to show questions
+function showQuestions() {
+    const currentQuestion = questions[currentQuestionIndex]
 }
