@@ -58,3 +58,11 @@ const scoreEl = document.getElementById('score');
 // Adds an event listener for the start quiz button.
 // Once the Start Quiz button is pressed, then start the quiz
 startButton.addEventListener('click', startQuiz);
+
+// Function to start the quiz.  
+// Once the start button is pressed, display for that 
+// is set to none, then questions and timer functions are called in the function
+function startQuiz() {
+    startButton.style.display = 'none';
+    quizSpace.style.display = 'block'
+}
