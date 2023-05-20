@@ -116,3 +116,21 @@ function endQuiz() {
     quizSpace.style.display = 'none';
     scoreEl.textContent = 'Quiz is over.  Your score is ${score}/${questions.length)';
 }
+
+submitButton.addEventListener('click', () => {
+    const selectedOption = document.querySelector('selected');
+
+    if (selectedOption) {
+        selectedOption.classList.remove('selected');
+        submitButton.disable = true;
+
+        currentQuestionIndex++;
+
+        if (currentQuestionIndex < questions.length) {
+            showQuestions();
+        } else {
+            clearInterval(timerInterval);
+            endQuiz();
+        }
+    }
+});
