@@ -40,7 +40,7 @@ const questions = [
 // Use let as this allows these variables to change over the course of the program
 // do these at the top of the program
 let currentQuestionIndex = 0;
-let timer = 15;
+let timer = 60;
 let score = 0;
 
 // getElementByIds
@@ -84,4 +84,35 @@ function showQuestions() {
         option.addEventListener('click', handleOptionClick);
         optionsEl.appendChild(option);
     }
+}
+
+// function for click options
+function handleOptionClick(event) {
+    const selectedOption = event.target;
+    const selectedAnswer = selectedOption.textContent;
+    const currentQuestion = questions[currentQuestionIndex];
+
+    if (selectedAnswer === currentQuestion.answer) {
+        score++;
+    }
+    
+    selectedOption.classList.add('selected');
+    submitButton.disabled = false;
+}
+
+function startTime() {
+    const timerInterval = setInterval(() => {
+        timeRemaining--;
+        timeEL.textContent = timeRemaining;
+
+        if (timeRemaining <= 0) {
+            clearInterval(timerInterval);
+            endQuiz();
+        }
+    }, 1000);
+}
+
+function endQuiz() {
+    quizSpace.style.display = 'none';
+    scoreEl.textContent = 'Quiz is over.  Your score is ${score}/${questions.length)';
 }
