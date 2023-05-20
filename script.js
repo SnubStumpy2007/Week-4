@@ -74,5 +74,14 @@ function startQuiz() {
 
 // function to show questions
 function showQuestions() {
-    const currentQuestion = questions[currentQuestionIndex]
+    const currentQuestion = questions[currentQuestionIndex];
+    questionEl.textContent = currentQuestion.question;
+    optionsEl.innerHTML= '';
+
+    for (let i = 0; i < currentQuestion.options.length; i++) {
+        const option = document.createElement('button');
+        option.textContent = currentQuestion.options[i];
+        option.addEventListener('click', handleOptionClick);
+        optionsEl.appendChild(option);
+    }
 }
