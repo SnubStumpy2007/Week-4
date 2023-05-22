@@ -42,6 +42,7 @@ const questions = [
 let currentQuestionIndex = 0;
 let timer = 60;
 let score = 0;
+let timerInterval;
 
 // getElementByIds
 // provides access to DOM elements to manipulate them in the HTML
@@ -70,7 +71,7 @@ document.getElementById('startButton').addEventListener('click', startQuiz);
 function startQuiz() {
    document.getElementById('startButton').style.display = 'none';
    document.getElementById('questions').style.display = 'block';
-    showQuestions();
+   showQuestions();
    startTime();
 }
 
@@ -99,13 +100,38 @@ function handleOptionClick(event) {
     }
     
     selectedOption.classList.add('selected');
-    const submitButton = document.createElement('button');
-    submitButton.textContent = 'Submit';
-    optionsEl.appendChild(submitButton);
-    //submitButton.style.display = 'inline';
-    console.log(submitButton, "button pressed");
+
+    const submitButton = document.getElementById('submitButton');
+    if (!submitButton) {
+    const newSubmitButton = document.createElement('button');
+    newSubmitButton.textContent = 'Submit';
+    newSubmitButton.id = 'submitButton';
+    newSubmitButton.addEventListener('click', handleNextQuestion);    
+    optionsEl.appendChild(newSubmitButton);
+
+    //console.log(submitButton);
+    }
 
 }
+
+function handleNextQuestion() {
+    currentQuestionIndex++;
+    const selectedOption = document.querySelector('.selected');
+    if (selectedOption) {
+        selectedOption.classList.remove('selected');
+    }
+
+    const submitButton = document.getElementById('submitButton');
+    submitButton.disabled = true;
+
+    if (currentQuestionIndex < questions.length) {
+        showQuestions(); 
+        } else {
+            clearInterval(timerInterval);
+            endQuiz();
+        }
+    }
+
 
 function startTime() {
     const timerInterval = setInterval(() => {
@@ -126,7 +152,8 @@ function endQuiz() {
 
 //document.getElementById('submitButton')
 submitButton.addEventListener('click', () => {
-    const selectedOption = document.querySelector('.selected');
+    const selectedOption = document.querySelector('selected');
+    const timerInterval = setInterval(timer);
 
     if (selectedOption) {
         selectedOption.classList.remove('selected');
