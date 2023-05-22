@@ -48,7 +48,7 @@ let score = 0;
 // ID's are done with spans as well.
 // Text will be displayed on the page via JavaScript
 // El means element.  Parent, child elements
-const questionEl = document.getElementById('question');
+const questionEl = document.getElementById('questions');
 const optionsEl = document.getElementById('options');
 const startButton = document.getElementById('start-quiz');
 const submitButton = document.getElementById('submit');
@@ -70,7 +70,7 @@ function startQuiz() {
    document.getElementById('startButton').style.display = 'none';
    document.getElementById('questions').style.display = 'block';
     showQuestions();
-    startTime();
+   // startTime();
 }
 
 // function to show questions
@@ -98,15 +98,15 @@ function handleOptionClick(event) {
     }
     
     selectedOption.classList.add('selected');
-    submitButton.disabled = false;
+    document.getElementById('submitButton').disabled = false;
 }
 
 function startTime() {
     const timerInterval = setInterval(() => {
-        timeRemaining--;
-        timeEL.textContent = timeRemaining;
+        timer--;
+        timeEL.textContent = timer;
 
-        if (timeRemaining <= 0) {
+        if (timer <= 0) {
             clearInterval(timerInterval);
             endQuiz();
         }
@@ -118,7 +118,7 @@ function endQuiz() {
     scoreEl.textContent = 'Quiz is over.  Your score is ${score}/${questions.length)';
 }
 
-submitButton.addEventListener('click', () => {
+document.getElementById('submitButton').addEventListener('click', () => {
     const selectedOption = document.querySelector('selected');
 
     if (selectedOption) {
