@@ -50,10 +50,11 @@ let score = 0;
 // El means element.  Parent, child elements
 const questionEl = document.getElementById('questions');
 const optionsEl = document.getElementById('options');
-const startButton = document.getElementById('start-quiz');
-const submitButton = document.getElementById('submit');
+const startButton = document.getElementById('startButton');
+const submitButton = document.getElementById('submitButton');
 const timeEL = document.getElementById('timer');
 const scoreEl = document.getElementById('score');
+
 
 // Adds an event listener for the start quiz button.
 // Once the Start Quiz button is pressed, then start the quiz
@@ -70,7 +71,7 @@ function startQuiz() {
    document.getElementById('startButton').style.display = 'none';
    document.getElementById('questions').style.display = 'block';
     showQuestions();
-   // startTime();
+    startTime();
 }
 
 // function to show questions
@@ -98,7 +99,7 @@ function handleOptionClick(event) {
     }
     
     selectedOption.classList.add('selected');
-    document.getElementById('submitButton').disabled = false;
+    submitButton.disabled = false;
 }
 
 function startTime() {
