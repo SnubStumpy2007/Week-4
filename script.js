@@ -57,7 +57,8 @@ const scoreEl = document.getElementById('score');
 
 // Adds an event listener for the start quiz button.
 // Once the Start Quiz button is pressed, then start the quiz
-startButton.addEventListener('click', startQuiz);
+// Always use a document.getElementById for an event listener
+document.getElementById('startButton').addEventListener('click', startQuiz);
 
 // Function to start the quiz.  
 // Once the start button is pressed, display for that 
@@ -66,8 +67,8 @@ startButton.addEventListener('click', startQuiz);
 // This sets the display property to 'none', and the display style to 'block"
 // https://www.w3schools.com/jsref/prop_style_display.asp
 function startQuiz() {
-    startButton.style.display = 'none';
-    quizSpace.style.display = 'block';
+   document.getElementById('startButton').style.display = 'none';
+   document.getElementById('questions').style.display = 'block';
     showQuestions();
     startTime();
 }
