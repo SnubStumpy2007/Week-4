@@ -76,11 +76,13 @@ function startQuiz() {
 }
 
 // function to show questions
+// pulls from the questions object, then pulls from the options array
 function showQuestions() {
     const currentQuestion = questions[currentQuestionIndex];
     questionEl.textContent = currentQuestion.question;
     optionsEl.innerHTML= '';
 
+    // pulls from the options array in the questions object, displays all buttons on the screen
     for (let i = 0; i < currentQuestion.option.length; i++) {
         const option = document.createElement('button');
         option.textContent = currentQuestion.option[i];
@@ -114,6 +116,7 @@ function handleOptionClick(event) {
 
 }
 
+// extra function for handling next questions
 function handleNextQuestion() {
     currentQuestionIndex++;
     const selectedOption = document.querySelector('.selected');
@@ -132,7 +135,7 @@ function handleNextQuestion() {
         }
     }
 
-
+// timer function.  starts timer, counts down.
 function startTime() {
     const timerInterval = setInterval(() => {
         timer--;
@@ -145,12 +148,13 @@ function startTime() {
     }, 1000);
 }
 
+// function for the end of quiz.  displays message and correct questions.  quizSpace displays in the parent element of quizSpace on the HTML
 function endQuiz() {
     const quizSpace = document.getElementsByClassName('quizSpace')[0];
     quizSpace.textContent = `Quiz is over. Your score is ${score}/${questions.length}`;
   }
 
-//document.getElementById('submitButton')
+// submit button event listener.
 submitButton.addEventListener('click', () => {
     const selectedOption = document.querySelector('selected');
     const timerInterval = setInterval(timer);
