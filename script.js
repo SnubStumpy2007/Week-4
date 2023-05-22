@@ -110,10 +110,7 @@ function handleOptionClick(event) {
     newSubmitButton.id = 'submitButton';
     newSubmitButton.addEventListener('click', handleNextQuestion);    
     optionsEl.appendChild(newSubmitButton);
-
-    //console.log(submitButton);
     }
-
 }
 
 // extra function for handling next questions
