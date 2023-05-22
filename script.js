@@ -71,7 +71,7 @@ function startQuiz() {
    document.getElementById('startButton').style.display = 'none';
    document.getElementById('questions').style.display = 'block';
     showQuestions();
-    startTime();
+   startTime();
 }
 
 // function to show questions
@@ -99,7 +99,12 @@ function handleOptionClick(event) {
     }
     
     selectedOption.classList.add('selected');
-    submitButton.disabled = false;
+    const submitButton = document.createElement('button');
+    submitButton.textContent = 'Submit';
+    optionsEl.appendChild(submitButton);
+    //submitButton.style.display = 'inline';
+    console.log(submitButton, "button pressed");
+
 }
 
 function startTime() {
@@ -115,12 +120,13 @@ function startTime() {
 }
 
 function endQuiz() {
-    quizSpace.style.display = 'none';
-    scoreEl.textContent = 'Quiz is over.  Your score is ${score}/${questions.length)';
-}
+    const quizSpace = document.getElementsByClassName('quizSpace')[0];
+    quizSpace.textContent = `Quiz is over. Your score is ${score}/${questions.length}`;
+  }
 
-document.getElementById('submitButton').addEventListener('click', () => {
-    const selectedOption = document.querySelector('selected');
+//document.getElementById('submitButton')
+submitButton.addEventListener('click', () => {
+    const selectedOption = document.querySelector('.selected');
 
     if (selectedOption) {
         selectedOption.classList.remove('selected');
