@@ -8,27 +8,27 @@
 const questions = [
     {
     question: "What type of variable cannot be changed later in the code?",
-    options: ['const', 'let', 'var', 'double', 'string'],
+    option: ['const', 'let', 'var', 'double', 'string'],
     answer: 'const' 
     },
     {
     question: "What is an array?",
-    options: ['Assigns a value to a variable', 'A power grid', 'A variable that changes at the end of the program', 'A variable that holds many properties', 'A variable that holds more than one value.'],
+    option: ['Assigns a value to a variable', 'A power grid', 'A variable that changes at the end of the program', 'A variable that holds many properties', 'A variable that holds more than one value.'],
     answer: 'A variable that holds more than one value.' 
     },
     {
     question: "What is an object?",
-    options: ['Assigns a value to a variable', 'A power grid', 'A variable that changes at the end of the program', 'A variable that holds many properties', 'A variable that holds more than one value.'],
+    option: ['Assigns a value to a variable', 'A power grid', 'A variable that changes at the end of the program', 'A variable that holds many properties', 'A variable that holds more than one value.'],
     answer: 'A variable that holds many properties.' 
     },
     {
     question: "What is a method?",
-    options: ['Method and Red, a tv show from the mid-2000s', 'A power grid', 'A shorter syntax for defining a function property in the initalizer', 'A variable that holds many properties', 'A string of text.'],
+    option: ['Method and Red, a tv show from the mid-2000s', 'A power grid', 'A shorter syntax for defining a function property in the initalizer', 'A variable that holds many properties', 'A string of text.'],
     answer: 'A shorter syntax for defining a function property in the initalizer.' 
     },
     {
     question: "What is a function?",
-    options: ['An exercise at the gym', 'A block of code designed to perform a task', 'Creates a health bar in a video game', 'A variable that can be changed later in the code', 'A variable that holds more than one value.'],
+    option: ['An exercise at the gym', 'A block of code designed to perform a task', 'Creates a health bar in a video game', 'A variable that can be changed later in the code', 'A variable that holds more than one value.'],
     answer: 'A block of code designed to perform a task.' 
     }
 ]
@@ -80,9 +80,9 @@ function showQuestions() {
     questionEl.textContent = currentQuestion.question;
     optionsEl.innerHTML= '';
 
-    for (let i = 0; i < currentQuestion.options.length; i++) {
+    for (let i = 0; i < currentQuestion.option.length; i++) {
         const option = document.createElement('button');
-        option.textContent = currentQuestion.options[i];
+        option.textContent = currentQuestion.option[i];
         option.addEventListener('click', handleOptionClick);
         optionsEl.appendChild(option);
     }
