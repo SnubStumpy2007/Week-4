@@ -20,3 +20,4 @@ Various sources include W3schools, StackOverflow, Youtube tutorials.  Check comm
 Nick Stypinski 
 joshua192007@gmail.com
 
+![quiz](https://github.com/SnubStumpy2007/Week-4/assets/25469843/bfa765b5-be3a-4d8f-8a26-75c24d1cee09)
