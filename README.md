@@ -17,5 +17,5 @@ The JavaScript Quiz App is open-source software licensed under the MIT license.
 The JavaScript Quiz App was inspired by various quiz applications and online coding tutorials. We would like to thank the contributors and developers who have shared their knowledge and resources.  Also see comments in the files for a few of those sources.
 
 # Contact
-If you have any questions, suggestions, or issues, please feel free to reach out to us. You can contact us via email at joshua192007@gmail.com or visit our website example.com.
+If you have any questions, suggestions, or issues, please feel free to reach out to us. You can contact us via email at joshua192007@gmail.com
 

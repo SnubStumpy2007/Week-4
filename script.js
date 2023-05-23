@@ -1,5 +1,7 @@
 // ideas
 // https://www.codingnepalweb.com/quiz-app-with-timer-javascript/
+// https://github.com/WebDevSimplified/JavaScript-Quiz-App
+// https://stackoverflow.com/questions/66488667/javascript-how-do-i-save-the-score-and-initials-once-the-page-is-refreshed-and
 
 // define a constant object called questions.
 // This object contains various questions and answers in the form of arrays.
@@ -109,7 +111,6 @@ function handleOptionClick(event) {
     newSubmitButton.id = 'submitButton';
     newSubmitButton.addEventListener('click', handleNextQuestion);    
     optionsEl.appendChild(newSubmitButton);
-
     }
 
 }
@@ -146,9 +147,40 @@ function startTime() {
     }, 1000);
 }
 
+// inspiration https://stackoverflow.com/questions/66488667/javascript-how-do-i-save-the-score-and-initials-once-the-page-is-refreshed-and
 function endQuiz() {
     const quizSpace = document.getElementsByClassName('quizSpace')[0];
     quizSpace.textContent = `Quiz is over. Your score is ${score}/${questions.length}`;
+    
+    const initialsInput = document.createElement('input');  // creates an input element in the JavaScript file
+    initialsInput.setAttribute('type', 'text');  // sets the input type to text
+    initialsInput.setAttribute('placeholder', 'Enter your initials'); // sets placeholder text
+    initialsInput.id = 'initialsInput';  // sets the id of this input form to initialsInput
+
+    // save button code
+    const saveButton = document.createElement('button');  // creates the button elements
+    saveButton.textContent = 'Submit';  // assigns text to the button.  In this case, submit
+    saveButton.id = 'saveButton';  // Assigns an id to the button
+
+    // apphends elements
+    quizSpace.appendChild(initialsInput);
+    quizSpace.appendChild(saveButton);
+
+    // function for the save button
+    saveButton.addEventListener('click', () => {
+        const initials = initialsInput.value.trim();
+        if (initials !=='') {
+            const quizResult = {
+                initials: initials,
+                score: score  // quizResult object
+            };
+
+            // Setup the LocalStoreage element of storing the score and initials of the player
+            let quizResults = JSON.parse(localStorage.getItem('quizResults')) || []; // retrieves a string from the localStorage, the parses the number with JSON.parse.  
+            quizResults.push(quizResult); // pushes the quiz result into the quizResult object above
+            localStorage.setItem('quizResults', JSON.stringify(quizResults)); // then converts (parse) back into text using stringify, then stores it in localStorage
+        }
+    })
   }
 
 //document.getElementById('submitButton')
